@@ -5,3 +5,26 @@
  *= require_self
  *= require_tree . 
 */
+body {
+	width:800px;
+	margin: 0 auto;
+}
+
+a {
+	text-decoration:none;
+}
+header {
+	margin: 0 auto;
+	height:50px;
+
+}
+
+header ul li {
+	list-style-type:none;
+	float:left;
+	padding:1em;
+}
+
+p.body {
+	
+}
