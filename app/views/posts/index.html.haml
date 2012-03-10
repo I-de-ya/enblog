@@ -1,6 +1,11 @@
 - @posts.each do |post|
-	%h3= link_to post.title, post_path(post)
+	%h3
+		= link_to post.title, post_path(post)
+		(
+		= post.user.nil? ? "-" : post.user.username
+		)
 	%p.body
 		= truncate(strip_tags(post.body),:length => 500)
+	
 
 = link_to 'New Post', new_post_path

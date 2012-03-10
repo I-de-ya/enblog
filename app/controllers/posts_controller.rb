@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_filter :correct_user, :only => [:edit, :update, :destroy, :delete]
+  before_filter :authenticate_user!, :except => [:index, :show]
   # GET /posts
   # GET /posts.json
   def index
@@ -41,7 +43,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(params[:post])
-
+    @post.user_id = current_user.id
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
@@ -80,4 +82,10 @@ class PostsController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def correct_user
+    @post = Post.find(params[:id])
+    redirect_to(root_path) unless (current_user == @post.user)
+  end
+
 end

@@ -2,11 +2,13 @@
 %html
 	%head>
 		%title Enblog
-		= stylesheet_link_tag    "application"
+		= stylesheet_link_tag "application"
 		= javascript_include_tag "application"
 		= csrf_meta_tags
 	%body
 		= render 'layouts/header'
+		.right_column
+			= render 'layouts/right_column'
 		.container
 			%p.notice= notice
 			%p.alert= alert
