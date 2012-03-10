@@ -4,10 +4,30 @@
 %p
 	%b Title:
 	= @post.title
-
+	(
+	= link_to 'Edit', edit_post_path(@post)
+	)
 %p
 	%b Body:
 	= @post.body
 
-= link_to 'Edit', edit_post_path(@post)
-= link_to 'Back', posts_path
+
+
+%p 
+	Please leave your comment 
+	%i (unfortunately it will show comment you have created only after refreshing yet)
+= form_for([@post, Comment.new], :remote => true) do |f|
+	.field
+		= f.text_area :body, :cols => 50, :rows => 2
+	.actions
+		= f.submit
+
+#comments
+	- @post.comments.reverse.each do |comment|
+		.comment
+			%p
+				= comment.body
+				%br
+				(
+				= comment.user.username
+				)

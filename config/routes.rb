@@ -1,11 +1,15 @@
 Enblog::Application.routes.draw do
+  get "comments/create"
+
   ActiveAdmin.routes(self)
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   devise_for :users
 
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
