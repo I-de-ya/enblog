@@ -1,10 +1,4 @@
 %header
-	%ul
-		%li= link_to "Посты", posts_path
-		%li= link_to "Блоги", "#"
-		%li= link_to "Q&A", "#"
-		%li= link_to "События", "#"
-
 	.registration
 		- if user_signed_in?
 			Signed in as 
@@ -14,3 +8,13 @@
 			= link_to "Sign up", new_user_registration_path 
 			or 
 			= link_to "Sign in", new_user_session_path
+	.logos
+		= image_tag("logo_image.png",  :class => "logo")
+		= image_tag("logo.png")
+		
+	.menu
+		%ul
+			%li= link_to "Посты", posts_path
+			%li= link_to "Блоги", "#"
+			%li= link_to "Q&A", "#"
+			%li= link_to "События", "#"
