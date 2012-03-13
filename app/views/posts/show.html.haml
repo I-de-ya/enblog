@@ -1,3 +1,4 @@
+= @a
 %p#notice
 	= notice
 
@@ -10,24 +11,24 @@
 %p
 	%b Body:
 	= @post.body
-
-
-
-%p 
+.post_comments 
 	Please leave your comment 
-	%i (unfortunately it will show comment you have created only after refreshing yet)
-= form_for([@post, Comment.new], :remote => true) do |f|
-	.field
-		= f.text_area :body, :cols => 50, :rows => 2
-	.actions
-		= f.submit
 
-#comments
-	- @post.comments.reverse.each do |comment|
-		.comment
-			%p
-				= comment.body
-				%br
-				(
+	= form_for([@post, Comment.new], :remote => true) do |f|
+		.field
+			= f.text_area :body, :cols => 80, :rows => 3
+		.actions
+			= f.submit
+
+	#comments
+		- @post.comments.reverse.each do |comment|
+			.comment{:style => "margin-left:#{rand(0..2)*2}em"}
 				= comment.user.username
+				(
+				= comment.created_at.to_time
 				)
+				%br
+					= comment.body
+			
+
+				

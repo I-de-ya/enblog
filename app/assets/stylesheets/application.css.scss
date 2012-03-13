@@ -1,3 +1,4 @@
+
 body {
 	width:900px;
 	font-family: verdana, arial, helvetica, sans-serif;
@@ -16,10 +17,13 @@ li {
 }
 
 header {
-	padding:1.5em 1.5em 3em 7em;
+	padding:1.5em 1.5em 3em 1.5em;
 	background:black;
 	color: white;
 	
+	.empty{
+		color: black;
+	}
 	a {
 		color: white;
 	}
@@ -56,9 +60,24 @@ header {
 .container {
 	float:left;
 	width:700px;
+
 	div {
 	  &.field, &.actions {
 	    margin-bottom: 0; } }
+
+	.post_comments {
+		background:white;
+
+		.comment {
+			width:40em;
+			padding:0.5em;
+			margin-top:1em;
+			margin-bottom:1em;
+			font-size:10pt;
+			border:solid 1px black;
+			border-radius:10px;
+		}
+	}
 
 	#notice {
 	  color: green; }

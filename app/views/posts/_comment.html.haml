@@ -1,0 +1,7 @@
+.comment{:style => "margin-left:#{rand(0..3)*2}em"}
+	= current_user.username
+	(
+	= Time.now
+	)
+	%br
+		= @comment.body
