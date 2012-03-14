@@ -3,13 +3,12 @@
 	= notice
 
 %p
-	%b Title:
-	= @post.title
-	(
-	= link_to 'Edit', edit_post_path(@post)
-	)
+	%b
+		= @post.title
+		(
+		= link_to 'Edit', edit_post_path(@post)
+		)
 %p
-	%b Body:
 	= @post.body
 .post_comments 
 	Please leave your comment 
